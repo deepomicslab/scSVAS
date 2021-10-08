@@ -23,7 +23,7 @@ import docopt
 import h5py
 import os
 
-from biotool import genome
+from bioutensil import genome
 from utils import phylogenetic as phylo
 
 
@@ -76,7 +76,7 @@ def run_call(h5_fn=None, summary_fn=None, out_prefix=None, bins=None, assembly=N
              **args):
     bins = int(bins)
     summary_df = pd.read_csv(summary_fn).set_index('barcode')
-    non_noisy_cell_names = summary_df[summary_df.is_noisy == 0].index.tolist() 
+    non_noisy_cell_names = summary_df[summary_df.is_noisy == 0].index.tolist()
 
     h5_data = h5py.File(h5_fn, 'r')
     bin_size = get_bin_size(h5_data)
